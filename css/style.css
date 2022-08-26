@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  list-style-position: inside;
+}
+
+.container {
+  max-width: 1300px;
+  padding: 0px 15px;
+  margin: 0 auto;
+}
+
+.top_nav {
+  background: #171131;
+}
+.top_nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+.top_nav .container a {
+  color: #fff;
+  text-decoration: none;
+}
+.top_nav .container .social a {
+  margin-right: 8px;
+  color: #f55d22;
+  font-size: 18px;
+}
+.top_nav .container .social a:hover {
+  color: #fff;
+}
+.top_nav .container .login a {
+  margin-left: 20px;
+}
+.top_nav .container .login a:nth-child(1):hover {
+  color: #f55d22;
+}
+.top_nav .container .login a:nth-child(2) {
+  border: 1px solid #fff;
+  padding: 7px 10px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+.top_nav .container .login a:nth-child(2):hover {
+  border-color: #f55d22;
+  background: #f55d22;
+}
+
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0px;
+  background: #171131;
+}
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+nav .container #logo a {
+  color: #f55d22;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+nav .container #menu {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+}
+nav .container #menu li {
+  list-style-type: none;
+}
+nav .container #menu li a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: all 0.2s;
+}
+nav .container #menu li a::before {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #f55d22;
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  transition: width 0.2s;
+}
+nav .container #menu li a:hover {
+  color: #f55d22;
+}
+nav .container #menu li a:hover::before {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  nav .container #menu {
+    display: none;
+  }
+}
+
+header img {
+  width: 100%;
+}
+
+main {
+  margin-top: 40px;
+  min-height: 800px;
+}
+main .container #main_header {
+  display: flex;
+  justify-content: space-between;
+}
+main .container #main_header #films p {
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+  margin-right: 50px;
+}
+main .container #main_header #films p [data-rm] {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: -6px;
+  cursor: pointer;
+  font-size: 25px;
+  color: #f00;
+  font-weight: bold;
+}
+main .container #main_header #films p:hover [data-rm] {
+  display: block;
+}
+main .container #main_header #add {
+  width: 50%;
+}
+main .container #main_header #add input, main .container #main_header #add button {
+  padding: 10px;
+  border-radius: 8px;
+}
+main .container #main_header #add input[type=text] {
+  border: 1px solid #ccc;
+  width: 70%;
+}
+main .container #main_header #add button {
+  border: 1px solid green;
+  background: green;
+  color: #fff;
+  cursor: pointer;
+}
+main .container #main_header #add div {
+  margin-top: 20px;
+}
+main .container #main_header #add div label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+main .container #main_header #add div label input {
+  margin-right: 10px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  main .container #main_header {
+    flex-flow: column;
+  }
+  main .container #main_header #add {
+    margin-bottom: 30px;
+    order: -1;
+    width: 100%;
+  }
+}
+main .container #main_promo {
+  display: flex;
+  align-items: center;
+}
+main .container #main_promo .mp img {
+  width: 100%;
+  height: 200px;
+}
+
+.modal_wrapper {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 55;
+  background: rgba(0, 0, 0, 0.7);
+}
+.modal_wrapper-active {
+  display: flex;
+}
+.modal_wrapper form {
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+}
+.modal_wrapper form input {
+  display: flex;
+  width: 100%;
+  min-width: 280px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.modal_wrapper form button {
+  display: flex;
+  margin-top: 15px;
+  padding: 8px 35px;
+  border: none;
+  background: green;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.ifVal {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+/*Mobile menu start*/
+
+.mobile_menu{
+  display: none;
+  z-index: 5000;
+}
+
+.mobi-nav-btn {
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.mobi-open-btn {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
+
+.mobi-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	transform: translateX(-100%);
+	transition: transform .3s ease-in-out; 
+}
+
+.mobi-nav.visible {
+	transform: translateX(0);
+}
+
+.mobi-nav-black {
+	background-color: rgb(34, 31, 31);
+	width: 60%;
+	max-width: 480px;
+	min-width: 320px;
+	transition-delay: .4s;
+}
+
+.mobi-nav-black.visible {
+	transition-delay: 0s;
+}
+
+.mobi-nav-red {
+	background-color: rgb(229, 9, 20);
+	transition-delay: .2s; 
+	width: 95%;
+}
+
+.mobi-nav-red.visible {
+	transition-delay: .2s;
+}
+
+.mobi-nav-white {
+	background-color: #fff;
+	padding: 40px;
+	position: relative;
+	transition-delay: 0s; 
+	width: 95%;
+}
+
+.mobi-nav-white.visible {
+	transition-delay: .4s;
+}
+
+.mobi-close-btn {
+	opacity: 0.3;
+	position: absolute;
+	top: 40px;
+	right: 30px;
+}
+
+
+.mobi-list {
+	list-style-type: none;
+	padding: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mobi-list li {
+	margin: 20px 0;
+}
+
+.mobi-list li a {
+	color: rgb(34, 31, 31);
+	font-size: 14px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.mobi-list ul {
+	list-style-type: none;
+	padding-left: 20px;
+}
+
+.menu_open {
+  width: 50px;
+  margin-top: 30px;
+}
+
+.menu_close {
+  width: 30px;
+  height: 30px;
+  margin-top: 20px;
+}
+.mobi-list li a:hover {
+  color: #f55d22;
+}
+.mobi-list  li a:hover::before {
+  width: 100%;
+}
+
+@media screen and (max-width: 769px) {
+  .mobile_menu {
+    display: block;
+  }
+  nav .container #menu {
+    display: none;
+  }
+}
+
+
+/*Mobile menu end*/
